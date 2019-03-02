@@ -16,6 +16,13 @@ public class MainMenu : MonoBehaviour
         getHighScoreFromDB();
     }
 
+    public void insertScore(int newScore)
+    {
+        connectionString = "URI=file:" + Application.dataPath + "/HighScoreDB.sqlite";
+        insertScoreToDB(newScore);
+    }
+
+
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -75,6 +82,22 @@ public class MainMenu : MonoBehaviour
                     dbConnection.Close();
                     reader.Close();
                 }
+            }
+        }
+    }
+
+    private void insertScoreToDB(int newScore)
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connectionString))
+        {
+            dbConnection.Open();
+
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+                string sqlQuery = String.Format("INSERT INTO HighScore(score) VALUES(\"{0}\")",newScore);
+                dbCmd.CommandText = sqlQuery;
+                dbCmd.ExecuteScalar();
+                dbConnection.Close();
             }
         }
     }
