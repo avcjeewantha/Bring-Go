@@ -8,7 +8,7 @@ class HighScore
 {
     public int score { get; set; }
 
-    public HighScore(int score)
+    public HighScore(int score)         //High score Object / class
     {
         this.score = score;
     }

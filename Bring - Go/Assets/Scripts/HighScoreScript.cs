@@ -18,7 +18,7 @@ public class HighScoreScript : MonoBehaviour
     //}
 
     // Update is called once per frame
-    void Update()
+    void Update()   //Update the high Score (text)
     {
         this.score.GetComponent<Text>().text = MainMenu.score;
     }

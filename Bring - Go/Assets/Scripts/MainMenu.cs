@@ -13,19 +13,19 @@ public class MainMenu : MonoBehaviour
     public GameObject scorePreFab;
     public static String score;
 
-    public void highScore()
+    public void highScore()         //Get the high score
     {
         connectionString = "URI=file:" + Application.dataPath + "/HighScoreDB.sqlite";
         getHighScoreFromDB();
     }
 
-    public void insertScore(int newScore)
+    public void insertScore(int newScore)   //Insert new scores to database
     {
         connectionString = "URI=file:" + Application.dataPath + "/HighScoreDB.sqlite";
         insertScoreToDB(newScore);
     }
 
-    public void showHighScore()
+    public void showHighScore()               //executes the update method in HighScoreScript 
     {
         highScore();
         score = this.highscore.score.ToString();
@@ -39,18 +39,18 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    public void PlayGame()
+    public void PlayGame()    //Start to play the game
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }   
 
-    public void QuitGame()
+    public void QuitGame()      //Exit from the application
     {
         //Debug.Log("QUIT!");
         Application.Quit();
     }
 
-    private void getHighScoreFromDB()
+    private void getHighScoreFromDB()       //Get the high score from database
     {
         this.highscore = null;
 
@@ -67,7 +67,7 @@ public class MainMenu : MonoBehaviour
                 {
                     while (reader.Read())
                     {
-                        this.highscore = new HighScore(reader.GetInt32(0));
+                        this.highscore = new HighScore(reader.GetInt32(0));   //Create a new High Score Object
                         //Debug.Log(this.highscore.score.ToString());
                     }
                     dbConnection.Close();
@@ -77,7 +77,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    private void insertScoreToDB(int newScore)
+    private void insertScoreToDB(int newScore)    // Inser Scores to the Database
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
         {
@@ -85,7 +85,7 @@ public class MainMenu : MonoBehaviour
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string sqlQuery = String.Format("INSERT INTO HighScore(score) VALUES(\"{0}\"",newScore);
+                string sqlQuery = String.Format("INSERT INTO HighScore(score) VALUES(\"{0}\"",newScore);  
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar();
                 dbConnection.Close();
@@ -93,7 +93,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    private void deleteScoreFromDB(int oldScore)
+    private void deleteScoreFromDB(int oldScore)   // can delete specific score from database
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
         {
