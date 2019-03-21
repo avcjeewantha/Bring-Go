@@ -306,6 +306,9 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="SharpCompress.3.5">
+ <HintPath>F:/BringGo/Bring-Go/Bring - Go/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
+ </Reference>
  <Reference Include="Mono.Data.Sqlite">
  <HintPath>F:/BringGo/Bring-Go/Bring - Go/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
