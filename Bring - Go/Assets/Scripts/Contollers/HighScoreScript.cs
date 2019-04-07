@@ -46,14 +46,15 @@ public class HighScoreScript : MonoBehaviour {
         _score = highscore.score.ToString ();
     }
 
-    public void insertScore (int newScore) //Insert new scores to database
+    public static void insertScore (int newScore) //Insert new scores to database
     {
         connectionString = "URI=file:" + Application.dataPath + "/HighScoreDB.sqlite";
         using (IDbConnection dbConnection = new SqliteConnection (connectionString)) {
             dbConnection.Open ();
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
-                string sqlQuery = String.Format ("INSERT INTO HighScore(score) VALUES(\"{0}\"", newScore);
+                //Debug.Log(newScore);
+                string sqlQuery = String.Format ("INSERT INTO HighScore(score) VALUES("+ newScore + ")");
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar ();
                 dbConnection.Close ();
@@ -61,13 +62,13 @@ public class HighScoreScript : MonoBehaviour {
         }
     }
 
-    private void deleteScoreFromDB (int oldScore) // can delete specific score from database
+    private static void deleteScoreFromDB (int oldScore) // can delete specific score from database
     {
         using (IDbConnection dbConnection = new SqliteConnection (connectionString)) {
             dbConnection.Open ();
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
-                string sqlQuery = String.Format ("DELETE FROM HighScore WHERE score = \"{0}\"", oldScore);
+                string sqlQuery = String.Format ("DELETE FROM HighScore WHERE score = " + oldScore );
                 dbCmd.CommandText = sqlQuery;
                 dbCmd.ExecuteScalar ();
                 dbConnection.Close ();

@@ -57,6 +57,7 @@ public class TaskManager : MonoBehaviour
         else
         {
             //Debug.Log("Wrong Answer");
+            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
             failPanel.SetActive(true);
         }
     }
