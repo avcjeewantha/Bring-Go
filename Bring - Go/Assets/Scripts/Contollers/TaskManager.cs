@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
 
     public static TaskManager taskManager;
+    public GameObject winPanel;
+    public GameObject failPanel;
 
     public enum Goals { Apple, Pineapple, Banana, Avocado, Orange, Mango, Blouse, Cap, Frock, Hat, Shirt, Trousers, Brinjal, Cabbage, Carrot, Cucumber, Pumpkin, Tomato};
 
@@ -43,8 +46,17 @@ public class TaskManager : MonoBehaviour
 
     private void evaluateObj(Sprite sprite)
     {
-        if (GetComponent<Image>().sprite == sprite) Debug.Log("You're correct");
-        else Debug.Log("Wrong Answer");
+        if (GetComponent<Image>().sprite == sprite)
+        {
+            //Debug.Log("You're correct");
+            winPanel.SetActive(true);
+            Start();
+        }
+        else
+        {
+            //Debug.Log("Wrong Answer");
+            failPanel.SetActive(true);
+        }
     }
 
     
@@ -88,5 +100,10 @@ public class TaskManager : MonoBehaviour
     public static void setNewTask(Goals goalID)
     {
         taskManager.setNewTaskObj(goalID);
+    }
+    
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
