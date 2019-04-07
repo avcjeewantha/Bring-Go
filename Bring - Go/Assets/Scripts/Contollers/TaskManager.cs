@@ -11,11 +11,11 @@ public class TaskManager : MonoBehaviour
     public static TaskManager taskManager;
     public GameObject winPanel;
     public GameObject failPanel;
+    public Text score;
 
     public enum Goals { Apple, Pineapple, Banana, Avocado, Orange, Mango, Blouse, Cap, Frock, Hat, Shirt, Trousers, Brinjal, Cabbage, Carrot, Cucumber, Pumpkin, Tomato};
 
     public Goals goal;
-    public int score = 0;
 
     public Sprite AppleSprite;
     public Sprite PineappleSprite;
@@ -50,6 +50,8 @@ public class TaskManager : MonoBehaviour
         {
             //Debug.Log("You're correct");
             winPanel.SetActive(true);
+            PlayerPrefs.SetInt("TmpScore", (PlayerPrefs.GetInt("TmpScore", 00) + 2));
+            score.text = PlayerPrefs.GetInt("TmpScore", 00).ToString();
             Start();
         }
         else

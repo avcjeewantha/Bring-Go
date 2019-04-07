@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()    //Start to play the game
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.DeleteKey("TmpScore");
     }
 
     public void showHighScore()               //executes the update method in HighScoreScript 
