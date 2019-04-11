@@ -43,7 +43,7 @@ public static class SaveWav
 
 
 
-        Debug.Log(filepath);
+        //Debug.Log(filepath);
 
         // Make sure directory exists if user is saving to sub dir.
         Directory.CreateDirectory(Path.GetDirectoryName(filepath));

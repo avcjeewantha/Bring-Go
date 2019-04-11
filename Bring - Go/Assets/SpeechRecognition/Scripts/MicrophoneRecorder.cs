@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class MicrophoneRecorder : MonoBehaviour
 {
-    public int RecordingLength = 5;
+    public int RecordingLength = 2;
     private AudioClip recording;
     public void StartRecording()
     {
         string deviceName = GetMicrophoneName();
         if (deviceName == null)
             return;
-
+        //Debug.Log("Recording Started");
         recording = Microphone.Start(deviceName, false, RecordingLength, 44100);
     }
 
     public void EndRecording()
     {
+        //Debug.Log("Stop Recording");
         string deviceName = GetMicrophoneName();
         if (deviceName == null)
             return;
