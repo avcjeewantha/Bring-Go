@@ -28,7 +28,7 @@ public class EventInteractionExample : MonoBehaviour
 
     private void ResponseRecieved(GoogleCloudResponse response)
     {
-        Debug.Log(response.results[0].alternatives[0].transcript);
+        //Debug.Log(response.results[0].alternatives[0].transcript);
         //text.text = response.results[0].alternatives[0].transcript;
     }
 }

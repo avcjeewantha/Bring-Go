@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MicrophoneRecorder : MonoBehaviour
 {
-    public int RecordingLength = 2;
+    public int RecordingLength = 5;
     private AudioClip recording;
     public void StartRecording()
     {

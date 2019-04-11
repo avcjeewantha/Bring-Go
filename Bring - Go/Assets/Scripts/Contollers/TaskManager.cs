@@ -13,6 +13,9 @@ public class TaskManager : MonoBehaviour
     public GameObject failPanel;
     public Text score;
 
+    public String shopType;
+    public String taskItem;
+
     public enum Goals { Apple, Pineapple, Banana, Avocado, Orange, Mango, Blouse, Cap, Frock, Hat, Shirt, Trousers, Brinjal, Cabbage, Carrot, Cucumber, Pumpkin, Tomato};
 
     public Goals goal;
@@ -62,7 +65,29 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    
+    internal static void evaluateFromVoice(bool boolean)
+    {
+        taskManager.voiceEvaluateObj(boolean);
+    }
+
+    private void voiceEvaluateObj(bool boolean)
+    {
+        if (boolean)
+        {
+            //Debug.Log("You're correct");
+            winPanel.SetActive(true);
+            PlayerPrefs.SetInt("TmpScore", (PlayerPrefs.GetInt("TmpScore", 00) + 2));
+            score.text = PlayerPrefs.GetInt("TmpScore", 00).ToString();
+            Start();
+        }
+        else
+        {
+            //Debug.Log("Wrong Answer");
+            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
+            failPanel.SetActive(true);
+        }
+    }
+
     void Start()
     {
         taskManager = this;
@@ -76,26 +101,26 @@ public class TaskManager : MonoBehaviour
 
         goal = goalID;
 
-        if (goalID == Goals.Apple) GetComponent<Image>().sprite = AppleSprite;
-        if (goalID == Goals.Pineapple) GetComponent<Image>().sprite = PineappleSprite;
-        if (goalID == Goals.Banana) GetComponent<Image>().sprite = BananaSprite;
-        if (goalID == Goals.Avocado) GetComponent<Image>().sprite = AvocadoSprite;
-        if (goalID == Goals.Orange) GetComponent<Image>().sprite = OrangeSprite;
-        if (goalID == Goals.Mango) GetComponent<Image>().sprite = MangoSprite;
+        if (goalID == Goals.Apple) { GetComponent<Image>().sprite = AppleSprite; shopType = "FShop"; taskItem = "apple"; }
+        if (goalID == Goals.Pineapple) { GetComponent<Image>().sprite = PineappleSprite; shopType = "FShop"; taskItem = "pineapple"; }
+        if (goalID == Goals.Banana) { GetComponent<Image>().sprite = BananaSprite; shopType = "FShop"; taskItem = "banana"; }
+        if (goalID == Goals.Avocado) { GetComponent<Image>().sprite = AvocadoSprite; shopType = "FShop"; taskItem = "avocado"; }
+        if (goalID == Goals.Orange) { GetComponent<Image>().sprite = OrangeSprite; shopType = "FShop"; taskItem = "Orange"; }
+        if (goalID == Goals.Mango) { GetComponent<Image>().sprite = MangoSprite; shopType = "FShop"; taskItem = "mango"; }
 
-        if (goalID == Goals.Blouse) GetComponent<Image>().sprite = BlouseSprite;
-        if (goalID == Goals.Cap) GetComponent<Image>().sprite = CapSprite;
-        if (goalID == Goals.Frock) GetComponent<Image>().sprite = FrockSprite;
-        if (goalID == Goals.Hat) GetComponent<Image>().sprite = HatSprite;
-        if (goalID == Goals.Shirt) GetComponent<Image>().sprite = ShirtSprite;
-        if (goalID == Goals.Trousers) GetComponent<Image>().sprite = TrousersSprite;
+        if (goalID == Goals.Blouse) { GetComponent<Image>().sprite = BlouseSprite; shopType = "CShop"; taskItem = "blouse"; }
+        if (goalID == Goals.Cap) { GetComponent<Image>().sprite = CapSprite; shopType = "CShop"; taskItem = "kept"; }
+        if (goalID == Goals.Frock) { GetComponent<Image>().sprite = FrockSprite; shopType = "CShop"; taskItem = "truck"; }
+        if (goalID == Goals.Hat) { GetComponent<Image>().sprite = HatSprite; shopType = "CShop"; taskItem = "hat"; }
+        if (goalID == Goals.Shirt) { GetComponent<Image>().sprite = ShirtSprite; shopType = "CShop"; taskItem = "shirt"; }
+        if (goalID == Goals.Trousers) { GetComponent<Image>().sprite = TrousersSprite; shopType = "CShop"; taskItem = "trousers"; }
 
-        if (goalID == Goals.Brinjal) GetComponent<Image>().sprite = BrinjalSprite;
-        if (goalID == Goals.Cabbage) GetComponent<Image>().sprite = CabbageSprite;
-        if (goalID == Goals.Carrot) GetComponent<Image>().sprite = CarrotSprite;
-        if (goalID == Goals.Cucumber) GetComponent<Image>().sprite = CucumberSprite;
-        if (goalID == Goals.Pumpkin) GetComponent<Image>().sprite = PumpkinSprite;
-        if (goalID == Goals.Tomato) GetComponent<Image>().sprite = TomatoSprite;
+        if (goalID == Goals.Brinjal) { GetComponent<Image>().sprite = BrinjalSprite; shopType = "VShop"; taskItem = "brinjal"; }
+        if (goalID == Goals.Cabbage) { GetComponent<Image>().sprite = CabbageSprite; shopType = "VShop"; taskItem = "cabbage"; }
+        if (goalID == Goals.Carrot) { GetComponent<Image>().sprite = CarrotSprite; shopType = "VShop"; taskItem = "carrot"; }
+        if (goalID == Goals.Cucumber) { GetComponent<Image>().sprite = CucumberSprite; shopType = "VShop"; taskItem = "cucumber"; }
+        if (goalID == Goals.Pumpkin) { GetComponent<Image>().sprite = PumpkinSprite; shopType = "VShop"; taskItem = "pumpkin"; }
+        if (goalID == Goals.Tomato) { GetComponent<Image>().sprite = TomatoSprite; shopType = "VShop"; taskItem = "tomato"; }
 
 
     }
@@ -108,5 +133,15 @@ public class TaskManager : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public static String getShopType()
+    {
+        return taskManager.shopType;
+    }
+
+    public static String getTaskItem()
+    {
+        return taskManager.taskItem;
     }
 }

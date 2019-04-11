@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Contollers\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Contollers\Player.cs" />
      <Compile Include="Assets\Scripts\Contollers\TaskManager.cs" />
+     <Compile Include="Assets\Scripts\Contollers\VoiceEvaluator.cs" />
      <Compile Include="Assets\Scripts\General\HighScore.cs" />
      <Compile Include="Assets\Scripts\Objects\CShop.cs" />
      <Compile Include="Assets\Scripts\Objects\FShop.cs" />

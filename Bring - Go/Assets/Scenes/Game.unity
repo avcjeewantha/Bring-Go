@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 88798437}
   - component: {fileID: 88798436}
   - component: {fileID: 88798439}
+  - component: {fileID: 88798440}
   m_Layer: 5
   m_Name: RecordBtn
   m_TagString: Untagged
@@ -696,7 +697,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88798437}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 88798434}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &88798437
@@ -784,6 +796,21 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &88798440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88798434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044c08123175c1a428aa0887dc3f3948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopType: 
+  taskItem: 
+  thisShop: CShop
 --- !u!1 &95700600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,50 +5219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1144542648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1144542650}
-  - component: {fileID: 1144542649}
-  m_Layer: 0
-  m_Name: SpeechController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1144542649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144542648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ade476dde7711d4a8e890f295b66c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
---- !u!4 &1144542650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144542648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 206.23438, y: 268.3053, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166811308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,6 +6411,7 @@ GameObject:
   - component: {fileID: 1365646277}
   - component: {fileID: 1365646276}
   - component: {fileID: 1365646279}
+  - component: {fileID: 1365646280}
   m_Layer: 5
   m_Name: RecordBtn
   m_TagString: Untagged
@@ -6494,7 +6478,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1365646277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1365646274}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1365646277
@@ -6582,6 +6577,21 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1365646280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365646274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044c08123175c1a428aa0887dc3f3948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopType: 
+  taskItem: 
+  thisShop: VShop
 --- !u!1 &1435215771
 GameObject:
   m_ObjectHideFlags: 0
@@ -7476,6 +7486,7 @@ GameObject:
   - component: {fileID: 1597617675}
   - component: {fileID: 1597617674}
   - component: {fileID: 1597617677}
+  - component: {fileID: 1597617678}
   m_Layer: 5
   m_Name: RecordBtn
   m_TagString: Untagged
@@ -7542,7 +7553,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1597617675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597617672}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1597617675
@@ -7630,6 +7652,21 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1597617678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597617672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044c08123175c1a428aa0887dc3f3948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopType: 
+  taskItem: 
+  thisShop: FShop
 --- !u!1 &1622893575
 GameObject:
   m_ObjectHideFlags: 0
@@ -8517,6 +8554,8 @@ MonoBehaviour:
   winPanel: {fileID: 1108925080}
   failPanel: {fileID: 30738263}
   score: {fileID: 2405023127172169698}
+  shopType: 
+  taskItem: 
   goal: 1
   AppleSprite: {fileID: 21300000, guid: d283b35c5bc7f3148b162254103d06de, type: 3}
   PineappleSprite: {fileID: 21300000, guid: 1ddf32b71b43bbc47b4e79de3b70003a, type: 3}
