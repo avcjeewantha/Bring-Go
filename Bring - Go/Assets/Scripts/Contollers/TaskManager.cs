@@ -60,8 +60,8 @@ public class TaskManager : MonoBehaviour
         else
         {
             //Debug.Log("Wrong Answer");
-            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
             failPanel.SetActive(true);
+            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
         }
     }
 
@@ -83,8 +83,8 @@ public class TaskManager : MonoBehaviour
         else
         {
             //Debug.Log("Wrong Answer");
-            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
             failPanel.SetActive(true);
+            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));    
         }
     }
 

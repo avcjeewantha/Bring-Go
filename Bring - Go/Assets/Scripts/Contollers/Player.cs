@@ -27,7 +27,51 @@ public class Player : MonoBehaviour
     }
 
     void Update(){
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //moveVelocity = moveInput.normalized * speed;
+        //transform.Translate(Input.acceleration.x * 10, Input.acceleration.y *10 , 0);
+
+        float x = Input.acceleration.x;
+        float y = Input.acceleration.y;
+        if (x < -0.2)
+        {
+            moveLeft();
+        }
+        else if (x > 0.2)
+        {
+            moveRight();
+        }
+        else if (y < -0.2)
+        {
+            moveDown();
+        }
+        else if (y > 0.2)
+        {
+            moveUp();
+        }
+    }
+
+    void moveLeft()
+    {
+        Vector2 moveInput = new Vector2(-1, 0);
+        moveVelocity = moveInput.normalized * speed;
+    }
+
+    void moveRight()
+    {
+        Vector2 moveInput = new Vector2(1, 0);
+        moveVelocity = moveInput.normalized * speed;
+    }
+
+    void moveDown()
+    {
+        Vector2 moveInput = new Vector2(0, -1);
+        moveVelocity = moveInput.normalized * speed;
+    }
+
+    void moveUp()
+    {
+        Vector2 moveInput = new Vector2(0, 1);
         moveVelocity = moveInput.normalized * speed;
     }
 
