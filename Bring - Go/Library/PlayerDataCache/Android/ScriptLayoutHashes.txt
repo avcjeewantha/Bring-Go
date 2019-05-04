@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-F:/Bring-Go/Bring-Go/Bring - Go/BringGo.apk
+F:/Bring-Go/Bring - Go/BringGo.apk
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Game.unity

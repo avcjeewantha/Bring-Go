@@ -26,7 +26,7 @@ public class HighScoreScript : MonoBehaviour {
             dbConnection.Open ();
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand ()) {
-                string sqlQuery = "SELECT MAX(score) FROM HighScore";
+                string sqlQuery = "SELECT MAX(score) FROM HighScore";  //DELETE FROM HighScore WHERE scoreID > 1;
                 dbCmd.CommandText = sqlQuery;
 
                 using (IDataReader reader = dbCmd.ExecuteReader ()) {

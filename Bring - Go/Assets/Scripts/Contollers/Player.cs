@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
+    private bool didItPlay = false;
 
     void Start(){
         this.rb = GetComponent<Rigidbody2D>();
@@ -36,18 +37,28 @@ public class Player : MonoBehaviour
         if (x < -0.2)
         {
             moveLeft();
+            GetComponent<AudioSource>().Play();
         }
         else if (x > 0.2)
         {
             moveRight();
+            GetComponent<AudioSource>().Play();
         }
         else if (y < -0.2)
         {
             moveDown();
+            GetComponent<AudioSource>().Play();
         }
         else if (y > 0.2)
         {
             moveUp();
+            GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            Vector2 moveInput = new Vector2(0, 0);
+            moveVelocity = moveInput.normalized * 0;
+
         }
     }
 
