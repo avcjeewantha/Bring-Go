@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject scorePreFab;
+    //public static HighScoreScript hi;
 
     public void PlayGame()    //Start to play the game
     {

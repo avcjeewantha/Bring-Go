@@ -1,10 +1,8 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-class HighScore
+public class HighScore : MonoBehaviour
 {
     public int score { get; set; }
 
@@ -12,5 +10,4 @@ class HighScore
     {
         this.score = score;
     }
-
 }
