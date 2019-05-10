@@ -11,12 +11,13 @@ public class MicrophoneRecorder : MonoBehaviour
         string deviceName = GetMicrophoneName();
         if (deviceName == null)
             return;
-
+        //Debug.Log("Recording Started");
         recording = Microphone.Start(deviceName, false, RecordingLength, 44100);
     }
 
     public void EndRecording()
     {
+        //Debug.Log("Stop Recording");
         string deviceName = GetMicrophoneName();
         if (deviceName == null)
             return;

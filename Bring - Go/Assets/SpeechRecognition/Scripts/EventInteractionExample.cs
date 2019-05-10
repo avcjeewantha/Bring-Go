@@ -6,7 +6,7 @@ using System;
 
 public class EventInteractionExample : MonoBehaviour
 {
-    public Text text;
+    //public Text text;
 
     private void OnEnable()
     {
@@ -22,11 +22,13 @@ public class EventInteractionExample : MonoBehaviour
 
     private void UploadStarted()
     {
-        text.text = "Analysing your beautiful voice" + Environment.NewLine + ".............";
+        //text.text = "Analysing your beautiful voice" + Environment.NewLine + ".............";
+        //text.text = null;
     }
 
     private void ResponseRecieved(GoogleCloudResponse response)
     {
-        text.text = response.results[0].alternatives[0].transcript;
+        //Debug.Log(response.results[0].alternatives[0].transcript);
+        //text.text = response.results[0].alternatives[0].transcript;
     }
 }

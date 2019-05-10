@@ -25,7 +25,7 @@ public class GoogleCloudCommunicator : MonoBehaviour
 
         string filename = "testing" + filenameRand;
 
-        Debug.Log("Recording Stopped");
+        //Debug.Log("Recording Stopped");
 
         if (!filename.ToLower().EndsWith(".wav"))
         {
@@ -34,23 +34,28 @@ public class GoogleCloudCommunicator : MonoBehaviour
 
         var filePath = Path.Combine("testing/", filename);
         filePath = Path.Combine(Application.persistentDataPath, filePath);
-        Debug.Log("Created filepath string: " + filePath);
+        //Debug.Log("Created filepath string: " + filePath);
 
         // Make sure directory exists if user is saving to sub dir.
         Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         SaveWav.Save(filePath, audio); //Save a temporary Wav File
-        Debug.Log("Saving @ " + filePath);
+        //Debug.Log("Saving @ " + filePath);
         //Insert your API KEY here.
         string apiURL = "https://speech.googleapis.com/v1/speech:recognize?&key=" + apiKey;
         string Response;
 
-        Debug.Log("Uploading " + filePath);
+        //Debug.Log("Uploading " + filePath);
         Response = HttpUploadFile(apiURL, filePath, "file", "audio/wav; rate=44100");
+        //Debug.Log(Response);
 
         GoogleCloudResponse parsedResponse = JsonUtility.FromJson<GoogleCloudResponse>(Response);
-
-        if (ResponseRecieved != null)
+        //Debug.Log(parsedResponse);
+        try
+        {
+            if(ResponseRecieved != null)
             ResponseRecieved(parsedResponse);
+        }
+        catch(NullReferenceException e){}
 
         //goAudioSource.Play(); //Playback the recorded audio
 
@@ -61,12 +66,12 @@ public class GoogleCloudCommunicator : MonoBehaviour
     {
 
         System.Net.ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
-        Debug.Log(string.Format("Uploading {0} to {1}", file, url));
+        //Debug.Log(string.Format("Uploading {0} to {1}", file, url));
 
         byte[] bytes = File.ReadAllBytes(file);
         string file64 = Convert.ToBase64String(bytes, Base64FormattingOptions.None);
 
-        Debug.Log(file64);
+        //Debug.Log(file64);
 
         try
         {
@@ -78,18 +83,19 @@ public class GoogleCloudCommunicator : MonoBehaviour
             {
                 string json = "{ \"config\": { \"languageCode\" : \"en-US\" }, \"audio\" : { \"content\" : \"" + file64 + "\"}}";
 
-                Debug.Log(json);
+                //Debug.Log(json);
                 streamWriter.Write(json);
                 streamWriter.Flush();
                 streamWriter.Close();
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            Debug.Log(httpResponse);
+            //Debug.Log(httpResponse);
 
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
+                //Debug.Log(result);
                 return result;
             }
 
@@ -97,7 +103,7 @@ public class GoogleCloudCommunicator : MonoBehaviour
         catch (WebException ex)
         {
             var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
-            Debug.Log(resp);
+            //Debug.Log(resp);
 
         }
 

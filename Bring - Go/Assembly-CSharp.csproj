@@ -53,12 +53,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Contollers\HighScoreScript.cs" />
      <Compile Include="Assets\Scripts\Contollers\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Contollers\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Contollers\Player.cs" />
      <Compile Include="Assets\Scripts\Contollers\TaskManager.cs" />
+     <Compile Include="Assets\Scripts\Contollers\VoiceEvaluator.cs" />
      <Compile Include="Assets\Scripts\General\HighScore.cs" />
+     <Compile Include="Assets\Scripts\HighScoreScript.cs" />
      <Compile Include="Assets\Scripts\Objects\CShop.cs" />
      <Compile Include="Assets\Scripts\Objects\FShop.cs" />
      <Compile Include="Assets\Scripts\Objects\VShop.cs" />
@@ -345,6 +346,9 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>F:/Bring-Go/Bring - Go/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data">
+ <HintPath>F:/Bring-Go/Bring - Go/Assets/Plugins/Mono.Data.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
