@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
-    private bool didItPlay = false;
+    //private bool didItPlay = false;
 
     void Start(){
         this.rb = GetComponent<Rigidbody2D>();

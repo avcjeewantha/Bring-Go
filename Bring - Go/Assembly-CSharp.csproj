@@ -53,17 +53,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Contollers\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Contollers\HighScoreScript.cs" />
      <Compile Include="Assets\Scripts\Contollers\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Contollers\MenuItemChoose.cs" />
      <Compile Include="Assets\Scripts\Contollers\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Contollers\Player.cs" />
      <Compile Include="Assets\Scripts\Contollers\TaskManager.cs" />
      <Compile Include="Assets\Scripts\Contollers\VoiceEvaluator.cs" />
-     <Compile Include="Assets\Scripts\General\HighScore.cs" />
-     <Compile Include="Assets\Scripts\HighScoreScript.cs" />
+     <Compile Include="Assets\Scripts\Contollers\VolumeChanger.cs" />
      <Compile Include="Assets\Scripts\Objects\CShop.cs" />
      <Compile Include="Assets\Scripts\Objects\FShop.cs" />
+     <Compile Include="Assets\Scripts\Objects\SliderObj.cs" />
      <Compile Include="Assets\Scripts\Objects\VShop.cs" />
-     <Compile Include="Assets\Scripts\SimpleFunctions\MenuItemChoose.cs" />
      <Compile Include="Assets\SpeechRecognition\Scripts\EventInteractionExample.cs" />
      <Compile Include="Assets\SpeechRecognition\Scripts\GoogleCloudCommunicator.cs" />
      <Compile Include="Assets\SpeechRecognition\Scripts\MicrophoneRecorder.cs" />
@@ -335,6 +337,9 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data">
+ <HintPath>F:/Bring-Go/Bring - Go/Assets/Plugins/Mono.Data.dll</HintPath>
+ </Reference>
  <Reference Include="Mono.Data.Sqlite">
  <HintPath>F:/Bring-Go/Bring - Go/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
@@ -346,9 +351,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>F:/Bring-Go/Bring - Go/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Data">
- <HintPath>F:/Bring-Go/Bring - Go/Assets/Plugins/Mono.Data.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

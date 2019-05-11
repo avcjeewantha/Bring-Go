@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //public static HighScoreScript hi;
+    public  void Start()
+    {
+        if (!(PlayerPrefs.HasKey("HighScore")))
+        {
+            PlayerPrefs.SetInt("HighScore", 00);
+        }
+    }
 
     public void PlayGame()    //Start to play the game
     {

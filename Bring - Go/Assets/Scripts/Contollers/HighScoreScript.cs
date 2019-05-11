@@ -7,26 +7,16 @@ using TMPro;
 
 public class HighScoreScript : MonoBehaviour {
     public TextMeshProUGUI score;
-    //private static string connectionString;
     public static int _score;
-    //public GameObject score;
-    //IDbCommand dbcmd;
-    //private IDataReader reader;
-    //public Text data_staff;
-
-    //string DatabaseName ="HighScoreDB.sqlite";
-
-
 
     void Update () //Update the high Score (text)    // Update is called once per frame
     {
-        this.score.GetComponent<TextMeshProUGUI>().text = _score.ToString();
+        this.score.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
     }
-
 
     public static void showHighScore() //executes the update method in HighScoreScript 
     {
-        string filepath = Application.dataPath + "/Plugins/HighScoreDB.sqlite";
+        string filepath = Application.dataPath + "/Database/HighScoreDB.sqlite";
         string conn = "URI=file:" + filepath;
 
         using (IDbConnection dbconn = new SqliteConnection(conn))
@@ -39,8 +29,8 @@ public class HighScoreScript : MonoBehaviour {
             while (reader.Read())
             {
                 _score = reader.GetInt32(0);
+                _score = PlayerPrefs.GetInt("HighScore");
                 //Debug.Log(_score);
-
             }
             reader.Close();
             reader = null;
@@ -52,10 +42,15 @@ public class HighScoreScript : MonoBehaviour {
 
     public static void insertScore(int newScore) //Insert new scores to database
     {
-        string filepath = Application.dataPath + "/Plugins/HighScoreDB.sqlite";
+        string filepath = Application.dataPath + "/Database/HighScoreDB.sqlite";
         string conn = "URI=file:" + filepath;
 
-        using (IDbConnection dbconn = new SqliteConnection(conn))
+        if (PlayerPrefs.GetInt("HighScore") < newScore)
+        {
+            PlayerPrefs.SetInt("HighScore", newScore);
+        }
+
+            using (IDbConnection dbconn = new SqliteConnection(conn))
         {
             dbconn.Open(); //Open connection to the database.
             IDbCommand dbcmd = dbconn.CreateCommand();
