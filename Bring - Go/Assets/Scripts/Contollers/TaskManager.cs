@@ -1,4 +1,6 @@
-﻿using System;
+﻿//This script is for assigning tasks and evaluate them. 
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +10,7 @@ using UnityEngine.UI;
 public class TaskManager : MonoBehaviour
 {
 
-    public static TaskManager taskManager;
+    public static TaskManager taskManager;                          //Variables for visible UI objects.
     public GameObject winPanel;
     public GameObject failPanel;
     public Text score;
@@ -16,11 +18,12 @@ public class TaskManager : MonoBehaviour
     public String shopType;
     public String taskItem;
 
+                                                                    //enum for keeping items and asssigning a value to them.
     public enum Goals { Apple, Pineapple, Banana, Avocado, Orange, Mango, Blouse, Cap, Frock, Hat, Shirt, Trousers, Brinjal, Cabbage, Carrot, Cucumber, Pumpkin, Tomato};
 
-    public Goals goal;
+    public Goals goal;                                              //Task
 
-    public Sprite AppleSprite;
+    public Sprite AppleSprite;                                      //keeps the images of tasks.
     public Sprite PineappleSprite;
     public Sprite BananaSprite;
     public Sprite AvocadoSprite;
@@ -49,19 +52,19 @@ public class TaskManager : MonoBehaviour
 
     private void evaluateObj(Sprite sprite)
     {
-        if (GetComponent<Image>().sprite == sprite)
+        if (GetComponent<Image>().sprite == sprite)                //Check whether the task is successful.
         {
             //Debug.Log("You're correct");
             winPanel.SetActive(true);
-            PlayerPrefs.SetInt("TmpScore", (PlayerPrefs.GetInt("TmpScore", 00) + 2));
-            score.text = PlayerPrefs.GetInt("TmpScore", 00).ToString();
-            Start();
+            PlayerPrefs.SetInt("TmpScore", (PlayerPrefs.GetInt("TmpScore", 00) + 2));           //Score value is increased by 2
+            score.text = PlayerPrefs.GetInt("TmpScore", 00).ToString();                         //Score value is displayed.
+            Start();                                                                            //Assign a new task
         }
         else
         {
             //Debug.Log("Wrong Answer");
             failPanel.SetActive(true);
-            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));
+            HighScoreScript.insertScore(PlayerPrefs.GetInt("TmpScore"));                       //Store the value in the database
         }
     }
 
@@ -70,7 +73,7 @@ public class TaskManager : MonoBehaviour
         taskManager.voiceEvaluateObj(boolean);
     }
 
-    private void voiceEvaluateObj(bool boolean)
+    private void voiceEvaluateObj(bool boolean)                             //Same function as abobe but for voice recognition.
     {
         if (boolean)
         {
@@ -91,12 +94,17 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         taskManager = this;
-        var randomNumber = UnityEngine.Random.Range(0,18);
+        var randomNumber = UnityEngine.Random.Range(0,18);              //Take a random value  
         
-        setNewTask((Goals)Enum.ToObject(typeof(Goals), randomNumber));
+        setNewTask((Goals)Enum.ToObject(typeof(Goals), randomNumber));  
     }
 
-    public void setNewTaskObj(Goals goalID)
+    public static void setNewTask(Goals goalID)         
+    {
+        taskManager.setNewTaskObj(goalID);
+    }
+
+    public void setNewTaskObj(Goals goalID)                             //set the task from selecting an item from Goals enum.
     {
 
         goal = goalID;
@@ -122,25 +130,19 @@ public class TaskManager : MonoBehaviour
         if (goalID == Goals.Pumpkin) { GetComponent<Image>().sprite = PumpkinSprite; shopType = "VShop"; taskItem = "pumpkin"; }
         if (goalID == Goals.Tomato) { GetComponent<Image>().sprite = TomatoSprite; shopType = "VShop"; taskItem = "tomato"; }
 
-
-    }
-
-    public static void setNewTask(Goals goalID)
-    {
-        taskManager.setNewTaskObj(goalID);
     }
     
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);   //When task is failed, user can restart the game.
     }
 
-    public static String getShopType()
+    public static String getShopType()                          //returns the shop type
     {
         return taskManager.shopType;
     }
 
-    public static String getTaskItem()
+    public static String getTaskItem()                          //Returns the task item name
     {
         return taskManager.taskItem;
     }

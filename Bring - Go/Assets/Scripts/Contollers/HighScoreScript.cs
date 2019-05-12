@@ -1,4 +1,6 @@
-﻿using System;
+﻿//This script is for managing the highScore part of the game.
+
+using System;
 using Mono.Data.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,17 +13,17 @@ public class HighScoreScript : MonoBehaviour {
 
     void Update () //Update the high Score (text)    // Update is called once per frame
     {
-        this.score.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
+        this.score.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();  //Always update the value of highScore panel according to the highScore value stored in device's registers.
     }
 
-    public static void showHighScore() //executes the update method in HighScoreScript 
+    public static void showHighScore()                          //executes the update method in HighScoreScript 
     {
         string filepath = Application.dataPath + "/Database/HighScoreDB.sqlite";
         string conn = "URI=file:" + filepath;
 
         using (IDbConnection dbconn = new SqliteConnection(conn))
         {
-            dbconn.Open(); //Open connection to the database.
+            dbconn.Open();                                       //Open connection to the database.
             IDbCommand dbcmd = dbconn.CreateCommand();
             string sqlQuery = "SELECT MAX(score) FROM HighScore";//DELETE FROM HighScore WHERE scoreID > 1;
             dbcmd.CommandText = sqlQuery;
@@ -40,14 +42,14 @@ public class HighScoreScript : MonoBehaviour {
         }
     }
 
-    public static void insertScore(int newScore) //Insert new scores to database
+    public static void insertScore(int newScore)                    //Insert new scores to database
     {
         string filepath = Application.dataPath + "/Database/HighScoreDB.sqlite";
         string conn = "URI=file:" + filepath;
 
         if (PlayerPrefs.GetInt("HighScore") < newScore)
         {
-            PlayerPrefs.SetInt("HighScore", newScore);
+            PlayerPrefs.SetInt("HighScore", newScore);              //Change the highScore if the score value exceeds the highScore value.
         }
 
             using (IDbConnection dbconn = new SqliteConnection(conn))
