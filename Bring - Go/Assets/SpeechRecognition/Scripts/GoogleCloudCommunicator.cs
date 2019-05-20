@@ -125,4 +125,5 @@ public class Alternative
 {
     public string transcript;
     public float confidence;
+
 }

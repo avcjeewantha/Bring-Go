@@ -70,6 +70,10 @@
      <Compile Include="Assets\SpeechRecognition\Scripts\GoogleCloudCommunicator.cs" />
      <Compile Include="Assets\SpeechRecognition\Scripts\MicrophoneRecorder.cs" />
      <Compile Include="Assets\SpeechRecognition\Scripts\SaveWav.cs" />
+     <Compile Include="Assets\Tests1\DBTester.cs" />
+     <Compile Include="Assets\Tests1\ObjectTester.cs" />
+     <Compile Include="Assets\Tests1\PlayerTester.cs" />
+     <Compile Include="Assets\Tests1\VoiceTester.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

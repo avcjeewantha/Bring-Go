@@ -22,12 +22,6 @@ public class EventInteractionExample : MonoBehaviour
         GoogleCloudCommunicator.ResponseRecieved -= ResponseRecieved;       //When the script is disabled, voiceEvaluator unsubscribes to ResponseRecieved event.
     }
 
-    //private void UploadStarted()                                 //To display something While processigng
-    //{
-    //text.text = "Analysing your beautiful voice" + Environment.NewLine + ".............";
-    //text.text = null;
-    //}
-
     private void ResponseRecieved(GoogleCloudResponse response)
     {
         //Debug.Log(response.results[0].alternatives[0].transcript);

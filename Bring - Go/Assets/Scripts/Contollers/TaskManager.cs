@@ -109,7 +109,7 @@ public class TaskManager : MonoBehaviour
 
         goal = goalID;
 
-        if (goalID == Goals.Apple) { GetComponent<Image>().sprite = AppleSprite; shopType = "FShop"; taskItem = "apple"; }
+        if (goalID == Goals.Apple) { GetComponent<Image>().sprite = AppleSprite; shopType = "FShop"; taskItem = "Apple"; }
         if (goalID == Goals.Pineapple) { GetComponent<Image>().sprite = PineappleSprite; shopType = "FShop"; taskItem = "pineapple"; }
         if (goalID == Goals.Banana) { GetComponent<Image>().sprite = BananaSprite; shopType = "FShop"; taskItem = "banana"; }
         if (goalID == Goals.Avocado) { GetComponent<Image>().sprite = AvocadoSprite; shopType = "FShop"; taskItem = "avocado"; }
