@@ -1,7 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Contollers\HighScoreScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Tests\SceneTester.cs">
     <Files>
+      <File FileName="Assets\Tests\SceneTester.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Contollers\VoiceEvaluator.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Contollers\HighScoreScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Contollers\AudioManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Contollers\Player.cs" Line="1" Column="1" />

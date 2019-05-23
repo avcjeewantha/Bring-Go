@@ -37,7 +37,7 @@ public class DBTester : MonoBehaviour
         {
             dbconn.Open();                                   
             IDbCommand dbcmd = dbconn.CreateCommand();
-            string sqlQuery = "SELECT score FROM HighScore ORDER BY scoreID DESC LIMIT 10;";//DELETE FROM HighScore WHERE scoreID > 1;
+            string sqlQuery = "DELETE FROM HighScore WHERE scoreID > 1;";// SELECT score FROM HighScore ORDER BY scoreID DESC LIMIT 10;";//DELETE FROM HighScore WHERE scoreID > 1;
             dbcmd.CommandText = sqlQuery;
             IDataReader reader = dbcmd.ExecuteReader();
             while (reader.Read())

@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 278009484}
   m_Layer: 0
   m_Name: AudioRecorder
-  m_TagString: Untagged
+  m_TagString: AudioRecorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2655,7 +2655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7a3264cf8d6ec4d87794631532c8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 150
 --- !u!50 &352655712
 Rigidbody2D:
   serializedVersion: 4
@@ -7958,7 +7958,7 @@ GameObject:
   - component: {fileID: 1128028884}
   m_Layer: 0
   m_Name: CloudCommunication
-  m_TagString: Untagged
+  m_TagString: CloudCommunication
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

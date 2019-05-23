@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using UnityEngine;
+//using System.Diagnostics;
 using UnityEngine.UI;
 
 public class GoogleCloudCommunicator : MonoBehaviour
@@ -16,7 +17,10 @@ public class GoogleCloudCommunicator : MonoBehaviour
     public static event GoogleCloudResponseDel ResponseRecieved;    //Event - ResponseRecieved for the delegate - GoogleCloudResponseDel
 
     public void GetText(AudioClip audio)
-    {             
+    {
+
+        //Stopwatch sw = new Stopwatch();
+        //sw.Start();
 
         float filenameRand = UnityEngine.Random.Range(0.0f, 10.0f);    
         string filename = "testing" + filenameRand;                     //Creates a random file name.
@@ -44,12 +48,16 @@ public class GoogleCloudCommunicator : MonoBehaviour
 
         try                                                             //If the record length is Zero, the exception is caught.
         {
-            if(ResponseRecieved != null)                                //If there is a subscriber, publish the parsedResponse.
+            if (ResponseRecieved != null)
+            {                               //If there is a subscriber, publish the parsedResponse.
+                //sw.Stop();
+                //UnityEngine.Debug.Log("time : " + sw.Elapsed);
                 ResponseRecieved(parsedResponse);
+            }
         }
         catch(NullReferenceException e)
         {
-            Debug.Log(e +" : because you have to hold the record button");
+            UnityEngine.Debug.Log(e +" : because you have to hold the record button");
         }
         
         File.Delete(filePath); //Delete the Temporary Wav file          //Then, Delete the file path
